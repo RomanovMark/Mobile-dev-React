@@ -1,0 +1,37 @@
+import React, { useState } from 'react';
+import { Text, View, StyleSheet, Button, ScrollView } from 'react-native';
+import Constants from 'expo-constants';
+
+export default function App() {
+  // count state-variable
+  const [numbers, setNumbers] = useState([]);
+
+  // call hook to set a new array to numbers
+  // ...numbers is all the numbers before and add a new random one
+  const addNumber = () => {
+    setNumbers([...numbers, Math.random()]);
+  }
+
+  return (
+    <View style={styles.container}>
+      <Button title="Randomize" onPress={addNumber}/>
+      <ScrollView>
+        {
+          numbers.map( (lastNumber,newNumber) => (
+            <Text key={newNumber}>{lastNumber}</Text>
+          ))
+        }
+      </ScrollView>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    paddingTop: Constants.statusBarHeight,
+    backgroundColor: 'green',
+    padding: 8,
+  }
+});

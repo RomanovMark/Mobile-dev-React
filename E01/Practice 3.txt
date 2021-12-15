@@ -1,0 +1,44 @@
+import React, { Component } from 'react';
+import { Text, View, StyleSheet,} from 'react-native';
+import Constants from 'expo-constants';
+
+import {Card} from 'react-native-paper';
+
+import AssetExample from './components/AssetExample';
+
+class Movie extends Component
+{
+  render() {
+    return (
+      <View style = {{leftItems: 'left', borderWidth:'2px',padding:'3px', marginBottom: '2px'}}>
+      <Text style={{fontWeight: 'bold'}}>{this.props.title}</Text>
+      <Text>{this.props.thethre}</Text>
+      <Text>{this.props.startingTime}</Text>
+      </View>
+    )
+    }
+}
+
+export default class App extends React.Component 
+{
+  render(){
+    return(
+      <View style={styles.container}>
+      <Movie title= "Terminator" thethre= "Great Theatre, Kotka, sali 1" startingTime = "10:30 - 2020-01-01"/>
+      <Movie title= "Mad Max" thethre= "Great Theatre, Kotka, sali 2" startingTime = "11:30 - 2020-02-01"/>
+      <Movie title= "Joker" thethre= "Great Theatre, Kotka, sali 3" startingTime = "12:30 - 2020-03-01"/>
+      </View>
+    );
+  }
+}
+ 
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    paddingTop: Constants.statusBarHeight,
+    backgroundColor: 'white',
+    padding: 8,
+  }
+});
